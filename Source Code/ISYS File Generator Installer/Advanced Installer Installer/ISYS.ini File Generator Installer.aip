@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="3"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon_1.exe"/>
+    <ROW Property="DialogBitmap" Value="style5blue_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Craig Lotter"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+    <ROW Property="ProductName" Value="ISYS.ini File Generator 1.0"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPCONTACT" Value="0833085018"/>
+    <ROW Property="BannerBitmap" Value="style5blue_banner.jpg"/>
+    <ROW Property="ProductVersion" Value="1.0.2"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS"/>
+    <ROW Property="UpgradeCode" Value="{141ED4CF-0AAE-44C3-8B80-BE9E90256220}"/>
+    <ROW Property="ProductCode" Value="{D2BBD9A4-2C14-4673-B8F0-9B6A785D1418}"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="ISYS_File_Generator.exe" ComponentId="{71902F91-2C00-42C2-994E-55479650DE6A}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="ISYS_File_Generator.exe" FullKeyPath="TARGETDIR\ISYS File Generator.exe"/>
+    <ROW Component="ISYS_File_Generator_Config.txt" ComponentId="{7C9F4F12-57D9-46D2-8AFE-A8297C0D40EF}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="ISYS_File_Generator_Config.txt" FullKeyPath="TARGETDIR"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="ISYS_File_Generator_Config.txt ISYS_File_Generator.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="ISYS_File_Generator_Config.txt" Component_="ISYS_File_Generator_Config.txt" FileName="ISYS_F~1.txt|ISYS_File_Generator_Config.txt" Version="" Language="" Attributes="" SourcePath="..\..\ISYS File Generator\Help\ISYS_File_Generator_Config.txt" SelfReg="false"/>
+    <ROW File="Readme.txt" Component_="ISYS_File_Generator_Config.txt" FileName="Readme.txt" Version="" Language="" Attributes="" SourcePath="..\..\ISYS File Generator\Readme.txt" SelfReg="false"/>
+    <ROW File="ISYS_File_Generator.exe" Component_="ISYS_File_Generator.exe" FileName="ISYSFi~1.exe|ISYS File Generator.exe" Version="" Language="" Attributes="" SourcePath="..\..\ISYS File Generator\obj\Release\ISYS File Generator.exe" SelfReg="false"/>
+    <ROW File="ISYS_File_Generator_Help.rtf" Component_="ISYS_File_Generator_Config.txt" FileName="ISYS_F~1.rtf|ISYS_File_Generator_Help.rtf" Version="" Language="" Attributes="" SourcePath="..\..\ISYS File Generator\Help\ISYS_File_Generator_Help.rtf" SelfReg="false"/>
+    <ROW File="ISYS_Template.ini" Component_="ISYS_File_Generator_Config.txt" FileName="ISYS_T~1.ini|ISYS_Template.ini" Version="" Language="" Attributes="" SourcePath="..\..\ISYS File Generator\Help\ISYS_Template.ini" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#ISYS_File_Generator.exe]"/>
+    <ROW Action="AI_ViewReadme" Type="194" Source="viewer.exe" Target="[#Readme.txt]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="ISYS.ini_File_Generator_1.0" Directory_="SHORTCUTDIR" Name="ISYSin~1.0|ISYS.ini File Generator 1.0" Component_="ISYS_File_Generator.exe" Target="[TARGETDIR]\ISYS File Generator" Arguments="" Description="" Hotkey="0" Icon_="controlPanelIcon_1.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_ISYS.ini_File_Generator_1.0" Directory_="SHORTCUTDIR" Name="Uninst~1.0|Uninstall ISYS.ini File Generator 1.0" Component_="ISYS_File_Generator.exe" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon_1.exe" SourcePath="..\..\ISYS File Generator\GenApp.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="style5blue_banner.jpg" SourcePath="&lt;style5blue-banner.jpg&gt;"/>
+    <ROW Name="style5blue_dialog.jpg" SourcePath="&lt;style5blue-dialog.jpg&gt;"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW DisplayName=".NET Framework" SetupFileUrl="http://www.microsoft.com/downloads/details.aspx?FamilyID=262d25e3-f589-4842-8157-034d1e7cf3a3&amp;displaylang=en" Location="1" ExactSize="23698" TargetOS="2" SearchType="0" SearchString="[SystemFolder]mscoree.dll" VerMin="1.0" VerMax="" ComLine="dotnetfx.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="0"/>
+    <ATTRIBUTE name="Package" value="6"/>
+    <ATTRIBUTE name="PackageName" value="Release\ISYS_ini File Generator Installer"/>
+    <ATTRIBUTE name="IconPath" value="..\..\ISYS File Generator\GenApp.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
